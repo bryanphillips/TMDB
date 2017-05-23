@@ -26,7 +26,7 @@ namespace MovieDB.Droid
         private RatingBar _rating;
         private ImageView _moviePoster;
         private Button _playVideo, _addRemoveFavorite;
-        private GridView _similarMovies;
+        private ExpandableGridView _similarMovies;
         private ScrollView _scrollView;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -43,7 +43,7 @@ namespace MovieDB.Droid
             _moviePoster = FindViewById<ImageView>(Resource.Id.moviedetail_movieimage);
             _playVideo = FindViewById<Button>(Resource.Id.moviedetail_playvideo);
             _addRemoveFavorite = FindViewById<Button>(Resource.Id.moviedetail_addtofavorites);
-            _similarMovies = FindViewById<GridView>(Resource.Id.moviedetail_similarmoviesgrid);
+            _similarMovies = FindViewById<ExpandableGridView>(Resource.Id.moviedetail_similarmoviesgrid);
             _scrollView = FindViewById<ScrollView>(Resource.Id.moviedetail_scrollview);
 
             _title.Text = _movieViewModel.SelectedMovie.Title;
@@ -55,12 +55,19 @@ namespace MovieDB.Droid
             string url = _movieViewModel.SelectedMovie.ToPosterUrl(PosterSize.W780);
             Picasso.With(this).Load(url).Into(_moviePoster);
 
-            _similarMovies.Adapter = new SimilarMoviesAdapter(this);
+            _similarMovies.IsExpanded = true;
+            var gridAdapter = new SimilarMoviesAdapter(this);
+            _similarMovies.Adapter = gridAdapter;
+            gridAdapter.NotifyDataSetChanged();
             _similarMovies.ItemClick += SimilarMovieSelected;
 
             _playVideo.Click += (sender, e) =>
             {
-                //not sure about this. would eventually play a movie trailer or navigate to whichever site has the trailer.
+                new AlertDialog.Builder(this)
+                .SetTitle("Oops!")
+                .SetMessage("It looks like this option is not implemented yet.")
+                .SetPositiveButton("Ok", (@object, @eventargs) => { })
+                .Show();
             };
             _addRemoveFavorite.Click += (sender, e) =>
             {

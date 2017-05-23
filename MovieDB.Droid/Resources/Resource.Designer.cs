@@ -149,9 +149,6 @@ namespace MovieDB.Droid
 			// aapt resource value: 0x7f05000e
 			public const int moviedetail_addtofavorites = 2131034126;
 			
-			// aapt resource value: 0x7f050010
-			public const int moviedetail_gridlayout = 2131034128;
-			
 			// aapt resource value: 0x7f050005
 			public const int moviedetail_layout = 2131034117;
 			
@@ -173,11 +170,11 @@ namespace MovieDB.Droid
 			// aapt resource value: 0x7f050004
 			public const int moviedetail_scrollview = 2131034116;
 			
-			// aapt resource value: 0x7f050012
-			public const int moviedetail_similarmoviesgrid = 2131034130;
-			
 			// aapt resource value: 0x7f050011
-			public const int moviedetail_similartitle = 2131034129;
+			public const int moviedetail_similarmoviesgrid = 2131034129;
+			
+			// aapt resource value: 0x7f050010
+			public const int moviedetail_similartitle = 2131034128;
 			
 			// aapt resource value: 0x7f050009
 			public const int moviedetail_title = 2131034121;
@@ -191,20 +188,20 @@ namespace MovieDB.Droid
 			// aapt resource value: 0x7f05000c
 			public const int moviedetail_totalvotes = 2131034124;
 			
-			// aapt resource value: 0x7f050013
-			public const int movieitem_image = 2131034131;
-			
-			// aapt resource value: 0x7f050015
-			public const int movierow_item = 2131034133;
+			// aapt resource value: 0x7f050012
+			public const int movieitem_image = 2131034130;
 			
 			// aapt resource value: 0x7f050014
-			public const int movierow_title = 2131034132;
+			public const int movierow_item = 2131034132;
+			
+			// aapt resource value: 0x7f050013
+			public const int movierow_title = 2131034131;
+			
+			// aapt resource value: 0x7f050015
+			public const int movies_recyclerView = 2131034133;
 			
 			// aapt resource value: 0x7f050016
-			public const int movies_recyclerView = 2131034134;
-			
-			// aapt resource value: 0x7f050017
-			public const int similarmovieitem_image = 2131034135;
+			public const int similarmovieitem_image = 2131034134;
 			
 			static Id()
 			{
