@@ -12,18 +12,17 @@
         android:layout_height="match_parent"
         android:id="@+id/moviedetail_scrollview"
         android:verticalScrollbarPosition="right">
-        <FrameLayout
-            android:minWidth="25px"
-            android:minHeight="25px"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/moviedetail_framelayout">
+            android:id="@+id/moviedetail_layout">
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/moviedetail_toplayout"
-                android:layout_margin="20dp">
+                android:layout_margin="15dp">
                 <ImageView
                     android:src="@drawable/test"
                     android:layout_width="150dp"
@@ -45,12 +44,13 @@
                         android:textColor="@android:color/white"
                         android:textSize="19sp"
                         android:textStyle="bold"
-                        android:maxLines="2" />
+                        android:maxLines="2"
+                        android:ellipsize="end" />
                     <TextView
                         android:text="Release Date: 12/18/2015"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView1"
+                        android:id="@+id/moviedetail_releasedate"
                         android:maxLines="1"
                         android:textSize="14sp"
                         android:textColor="@android:color/white"
@@ -59,14 +59,78 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/moviedetail_rating"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:numStars="5"
                         android:layout_gravity="fill_horizontal"
-                        android:stepSize="1"
-                        android:rating="2"
+                        android:stepSize="0.5"
+                        android:rating="3.5"
                         style="@style/ratingBar" />
+                    <TextView
+                        android:text="(from 100 votes)"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/moviedetail_totalvotes"
+                        android:layout_marginTop="5dp" />
+                    <Button
+                        android:text="@string/PlayVideo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/moviedetail_playvideo"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:background="#9ACD32"
+                        android:padding="5dp"
+                        android:layout_marginTop="20dp"
+                        android:textColor="@android:color/white" />
+                    <Button
+                        android:text="@string/SaveToFavorites"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/moviedetail_addtofavorites"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:background="#ffa500"
+                        android:padding="5dp"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@android:color/white" />
                 </LinearLayout>
             </LinearLayout>
-        </FrameLayout>
+            <TextView
+                android:text="Raj is a rich, carefree, happy-go-lucky second generation NRI. Simran is the daughter of Chaudhary Baldev Singh, who in spite of being an NRI is very strict about adherence to Indian values. Simran has left for India to be married to her childhood fiancé. Raj leaves for India with a mission at his hands, to claim his lady love under the noses of her whole family. Thus begins a saga."
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/moviedetail_overview"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:maxLines="8"
+                android:ellipsize="end" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/moviedetail_gridlayout">
+                <TextView
+                    android:text="@string/SimilarMovies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/moviedetail_similartitle"
+                    android:layout_margin="10dp"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+                <GridView
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/moviedetail_similarmoviesgrid"
+                    android:numColumns="3"
+                    android:horizontalSpacing="10dp"
+                    android:stretchMode="columnWidth"
+                    android:verticalSpacing="5dp" />
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>

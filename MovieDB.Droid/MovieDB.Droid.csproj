@@ -87,6 +87,7 @@
     <Compile Include="Activities\MoviesActivity.cs" />
     <Compile Include="Adapters\MovieItemAdapter.cs" />
     <Compile Include="Adapters\MoviesAdapter.cs" />
+    <Compile Include="Adapters\SimilarMoviesAdapter.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -117,6 +118,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\moviedetail.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\similarmovieitem.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

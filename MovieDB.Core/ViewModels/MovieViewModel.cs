@@ -126,6 +126,7 @@ namespace MovieDB.Core.ViewModels
 
         /// <summary>
         /// Get full details of a movie.
+        /// Load similar movies to this one.
         /// </summary>
         /// <param name="movieId"></param>
         /// <returns></returns>
@@ -134,7 +135,8 @@ namespace MovieDB.Core.ViewModels
             IsBusy = true;
             try
             {
-               SelectedMovie = await _service.GetMovie(movieId);
+                SelectedMovie = await _service.GetMovie(movieId);
+                await LoadSimilar(movieId);
             }
             finally
             {

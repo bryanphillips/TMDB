@@ -49,6 +49,7 @@ namespace MovieDB.Droid.Adapters
     public class MovieItemViewHolder : RecyclerView.ViewHolder, View.IOnClickListener
     {
         private readonly ILogger _logger = ServiceContainer.Resolve<ILogger>();
+        private readonly MovieViewModel _movieViewModel = ServiceContainer.Resolve<MovieViewModel>();
         private ImageView _imageView;
         private View _rootView;
         private Context _context;
@@ -66,13 +67,14 @@ namespace MovieDB.Droid.Adapters
             get { return _imageView; }
         }
 
-        public void OnClick(View v)
+        public async void OnClick(View v)
         {
             //check the tag to see what movie it is. then navigate to next activity to show the movie.
             if(_rootView.Tag == v.Tag)
             {
                 _logger.Log("MovieItemViewHolder", $"Movie ID = {_rootView.Tag}");
-                _context.StartActivity(typeof(LoginActivity));
+                await _movieViewModel.GetMovie(_rootView.Tag.ToString());
+                _context.StartActivity(typeof(MovieDetailActivity));
             }
         }
     }
