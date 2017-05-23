@@ -20,4 +20,11 @@
   <style name="EditText" parent="android:Widget.EditText">
     <item name="android:textColor">@android:color/white</item>
   </style>
+
+  <style name="ratingBar" parent="@android:style/Widget.RatingBar">
+    <item name="android:progressDrawable">@drawable/customratingbar</item>
+    <item name="android:background">@android:color/transparent</item>
+    <item name="android:minHeight">30dp</item>
+    <item name="android:maxHeight">30dp</item>
+  </style>
 </resources>
