@@ -83,5 +83,16 @@ namespace MovieDB.Tests.ViewModelTests
             await _viewModel.GetMovie(similarMovie.Id.ToString());
             Assert.IsNotNull(_viewModel.SelectedMovie);
         }
+
+        [Test]
+        public async Task GetVideos()
+        {
+            await _viewModel.LoadNowPlaying();
+            Assert.AreNotEqual(0, _viewModel.NowPlaying.Count);
+            _viewModel.SelectedMovie = _viewModel.NowPlaying.FirstOrDefault();
+            Assert.IsNotNull(_viewModel.SelectedMovie);
+            await _viewModel.GetVideos(_viewModel.SelectedMovie.Id.ToString());
+            Assert.IsNotNull(_viewModel.SelectedMovieTrailer);
+        }
     }
 }

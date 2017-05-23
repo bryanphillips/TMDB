@@ -75,6 +75,7 @@ namespace MovieDB.Droid.Adapters
             {
                 _logger.Log("MovieItemViewHolder", $"Movie ID = {_rootView.Tag}");
                 await _movieViewModel.GetMovie(_rootView.Tag.ToString());
+                await _movieViewModel.GetVideos(_rootView.Tag.ToString());
                 _favoriteViewModel.LoadFavorites();
                 _context.StartActivity(typeof(MovieDetailActivity));
             }

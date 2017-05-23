@@ -275,6 +275,53 @@ namespace MovieDB.Core.Models
                 IsVideo = false,
             },
         };
+        private List<Video> _videos = new List<Video>
+        {
+            new Video
+            {
+                Id = "58e9c034c3a36872ee070c84",
+                CountryISO ="US",
+                Key ="7NhoeyoR_XA",
+                LanguageISO = "en",
+                Name = "Mehndi Laga Ke Rakhna - song by CinePlusPlus",
+                Site = "YouTube",
+                Size = 720,
+                Type = "Clip",
+            },
+            new Video
+            {
+                Id = "58e9bfb6925141351f02fde0",
+                CountryISO ="US",
+                Key ="Y9JvS2TmSvA",
+                LanguageISO = "en",
+                Name = "Mere Khwabon Mein - song by CinePlusPlus",
+                Site = "YouTube",
+                Size = 720,
+                Type = "Clip",
+            },
+            new Video
+            {
+                Id = "5581bd68c3a3685df70000c6",
+                CountryISO ="US",
+                Key ="c25GKl5VNeY",
+                LanguageISO = "en",
+                Name = "Trailer 1",
+                Site = "YouTube",
+                Size = 720,
+                Type = "Trailer",
+            },
+            new Video
+            {
+                Id = "58e9c00792514152ac020a34",
+                CountryISO ="US",
+                Key ="OkjXMqK1G0o",
+                LanguageISO = "en",
+                Name = "Ho Gaya Hai Tujhko To Pyar Sajna - song by CinePlusPlus",
+                Site = "YouTube",
+                Size = 720,
+                Type = "Clip",
+            },
+        };
 
         public async Task<Movie> GetMovie(string movieId)
         {
@@ -437,7 +484,13 @@ namespace MovieDB.Core.Models
 
         public async Task<QueryVideosResponse> GetVideos(string movieId)
         {
-            throw new NotImplementedException();
+            await Task.Delay(Sleep);
+
+            return new QueryVideosResponse
+            {
+                Id = 1,
+                Videos = _videos,
+            };
         }        
 
         public async Task<User> Login(string userName, string password)
