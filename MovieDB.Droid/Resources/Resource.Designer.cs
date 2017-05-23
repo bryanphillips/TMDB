@@ -81,6 +81,15 @@ namespace MovieDB.Droid
 			// aapt resource value: 0x7f040002
 			public const int item_touch_helper_swipe_escape_velocity = 2130968578;
 			
+			// aapt resource value: 0x7f040003
+			public const int largeText = 2130968579;
+			
+			// aapt resource value: 0x7f040004
+			public const int mediumText = 2130968580;
+			
+			// aapt resource value: 0x7f040005
+			public const int smallText = 2130968581;
+			
 			static Dimension()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

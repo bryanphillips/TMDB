@@ -2,12 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:minWidth="25px"
-    android:minHeight="25px">
+    android:layout_height="match_parent">
     <ScrollView
-        android:minWidth="25px"
-        android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/moviedetail_scrollview"
@@ -42,7 +38,7 @@
                         android:id="@+id/moviedetail_title"
                         android:layout_marginTop="5dp"
                         android:textColor="@android:color/white"
-                        android:textSize="19sp"
+                        android:textSize="@dimen/largeText"
                         android:textStyle="bold"
                         android:maxLines="2"
                         android:ellipsize="end" />
@@ -52,7 +48,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/moviedetail_releasedate"
                         android:maxLines="1"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/smallText"
                         android:textColor="@android:color/white"
                         android:layout_marginTop="10dp" />
                     <RatingBar
@@ -60,23 +56,23 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/moviedetail_rating"
                         android:layout_marginTop="10dp"
-                        android:numStars="5"
                         android:layout_gravity="fill_horizontal"
-                        android:stepSize="0.5"
-                        android:rating="3.5"
-                        style="@style/ratingBar" />
+                        android:rating="0"
+                        style="@style/ratingBar"
+                        android:numStars="5" />
                     <TextView
                         android:text="(from 100 votes)"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/moviedetail_totalvotes"
-                        android:layout_marginTop="5dp" />
+                        android:layout_marginTop="5dp"
+                        android:textSize="@dimen/smallText" />
                     <Button
                         android:text="@string/PlayVideo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/moviedetail_playvideo"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/smallText"
                         android:textStyle="bold"
                         android:background="#9ACD32"
                         android:padding="5dp"
@@ -87,12 +83,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/moviedetail_addtofavorites"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/smallText"
                         android:textStyle="bold"
                         android:background="#ffa500"
                         android:padding="5dp"
                         android:layout_marginTop="5dp"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@android:color/white"
+                        android:maxLines="1" />
                 </LinearLayout>
             </LinearLayout>
             <TextView
@@ -102,7 +99,7 @@
                 android:id="@+id/moviedetail_overview"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:textSize="14sp"
+                android:textSize="@dimen/smallText"
                 android:textColor="@android:color/white"
                 android:maxLines="8"
                 android:ellipsize="end" />
@@ -117,7 +114,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/moviedetail_similartitle"
                     android:layout_margin="10dp"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/largeText"
                     android:textColor="@android:color/white"
                     android:textStyle="bold" />
                 <GridView
