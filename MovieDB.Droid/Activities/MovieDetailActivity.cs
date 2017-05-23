@@ -14,6 +14,7 @@ using MovieDB.Core;
 using MovieDB.Droid.Adapters;
 using MovieDB.Droid.Utilities;
 using Square.Picasso;
+using MovieDB.Core.Api;
 
 namespace MovieDB.Droid
 {
@@ -63,12 +64,18 @@ namespace MovieDB.Droid
 
             _playVideo.Click += (sender, e) =>
             {
-                //for now lets just try to open youtube player app if it is a youtube video.
-                new AlertDialog.Builder(this)
-                .SetTitle("Oops!")
-                .SetMessage("It looks like this option is not implemented yet.")
-                .SetPositiveButton("Ok", (@object, @eventargs) => { })
-                .Show();
+                if (_movieViewModel.SelectedMovieTrailer != null)
+                {
+                    StartActivity(new Intent(Intent.ActionView, Android.Net.Uri.Parse(string.Format(Constants.YouTubeVideoUrl, _movieViewModel.SelectedMovieTrailer.Key))));
+                }
+                else
+                {
+                    new AlertDialog.Builder(this)
+                    .SetTitle("Oh No!")
+                    .SetMessage("It looks like there is no trailer for this movie :(")
+                    .SetPositiveButton("Ok", (@object, @eventargs) => { })
+                    .Show();
+                }
             };
             _addRemoveFavorite.Click += (sender, e) =>
             {
@@ -98,6 +105,7 @@ namespace MovieDB.Droid
             if (movie != null)
             {
                 await _movieViewModel.GetMovie(movie.Id.ToString());
+                await _movieViewModel.GetVideos(movie.Id.ToString());
                 StartActivity(typeof(MovieDetailActivity));
             }
         }
