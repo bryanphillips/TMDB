@@ -63,6 +63,7 @@ namespace MovieDB.Droid
 
             _playVideo.Click += (sender, e) =>
             {
+                //for now lets just try to open youtube player app if it is a youtube video.
                 new AlertDialog.Builder(this)
                 .SetTitle("Oops!")
                 .SetMessage("It looks like this option is not implemented yet.")

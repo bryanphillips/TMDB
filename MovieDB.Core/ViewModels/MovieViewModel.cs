@@ -1,4 +1,5 @@
-﻿using MovieDB.Core.Models;
+﻿using MovieDB.Core.Api;
+using MovieDB.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace MovieDB.Core.ViewModels
         private List<Movie> _popular;
         private List<Movie> _topRated;
         private List<Movie> _similar;
+        private Video _trailer;
 
         public MovieViewModel()
         {
@@ -43,6 +45,12 @@ namespace MovieDB.Core.ViewModels
         }
 
         public Movie SelectedMovie
+        {
+            get;
+            set;
+        }
+
+        public Video SelectedMovieTrailer
         {
             get;
             set;
@@ -144,6 +152,29 @@ namespace MovieDB.Core.ViewModels
             }
         }
 
+        /// <summary>
+        /// Get the list of videos and save out the trailer
+        /// Check the type & site for both trailer & youtube.
+        /// </summary>
+        /// <param name="movieId"></param>
+        /// <returns></returns>
+        public async Task GetVideos(string movieId)
+        {
+            IsBusy = true;
+            try
+            {
+                var videoResponse = await _service.GetVideos(movieId);
+                if (videoResponse != null && videoResponse.Videos != null)
+                {
+                    SelectedMovieTrailer = videoResponse.Videos.FirstOrDefault(v => v.Type == Constants.Trailer && v.Site == Constants.YouTube);
+                }
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
         public override void Clear()
         {
             base.Clear();
@@ -154,6 +185,7 @@ namespace MovieDB.Core.ViewModels
             _nowPlaying.Clear();
 
             SelectedMovie = null;
+            SelectedMovieTrailer = null;
         }
     }
 }
