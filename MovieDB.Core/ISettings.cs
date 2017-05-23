@@ -13,6 +13,11 @@ namespace MovieDB.Core
 
         string Password { get; set; }
 
+        /// <summary>
+        /// List of Favorite Movies
+        /// </summary>
+        List<Favorite> Favorites { get; set; }
+
         void Save();
     }
 }

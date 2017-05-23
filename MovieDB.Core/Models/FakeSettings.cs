@@ -25,6 +25,7 @@ namespace MovieDB.Core.Models
             get;
             set;
         }
+        public List<Favorite> Favorites { get; set; }
 
         public void Save()
         {

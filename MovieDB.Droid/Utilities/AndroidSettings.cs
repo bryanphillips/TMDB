@@ -39,6 +39,12 @@ namespace MovieDB.Droid
             set { Put("Password", value); }
         }
 
+        public List<Favorite> Favorites
+        {
+            get { return GetObject<List<Favorite>>("Favorites"); }
+            set { Put("Favorites", value); }
+        }
+
         public void Save()
         {
             //Commit changes and dispose

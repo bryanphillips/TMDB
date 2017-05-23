@@ -21,10 +21,11 @@ namespace MovieDB.Droid
     public class MovieDetailActivity : BaseActivity
     {
         private readonly MovieViewModel _movieViewModel = ServiceContainer.Resolve<MovieViewModel>();
+        private readonly FavoriteViewModel _favoriteViewModel = ServiceContainer.Resolve<FavoriteViewModel>();
         private TextView _title, _overview, _releaseDate, _voteTotal;
         private RatingBar _rating;
         private ImageView _moviePoster;
-        private Button _playVideo, _addtoFavorites;
+        private Button _playVideo, _addRemoveFavorite;
         private GridView _similarMovies;
         private ScrollView _scrollView;
 
@@ -41,14 +42,14 @@ namespace MovieDB.Droid
             _rating = FindViewById<RatingBar>(Resource.Id.moviedetail_rating);
             _moviePoster = FindViewById<ImageView>(Resource.Id.moviedetail_movieimage);
             _playVideo = FindViewById<Button>(Resource.Id.moviedetail_playvideo);
-            _addtoFavorites = FindViewById<Button>(Resource.Id.moviedetail_addtofavorites);
+            _addRemoveFavorite = FindViewById<Button>(Resource.Id.moviedetail_addtofavorites);
             _similarMovies = FindViewById<GridView>(Resource.Id.moviedetail_similarmoviesgrid);
             _scrollView = FindViewById<ScrollView>(Resource.Id.moviedetail_scrollview);
 
             _title.Text = _movieViewModel.SelectedMovie.Title;
             _overview.Text = _movieViewModel.SelectedMovie.Overview;
             _releaseDate.Text = $"Release Date: {_movieViewModel.SelectedMovie.ReleaseDate.ToShortDateString()}";
-            _voteTotal.Text = $"from {_movieViewModel.SelectedMovie.VoteCount} votes";
+            _voteTotal.Text = $"(from {_movieViewModel.SelectedMovie.VoteCount} votes)";
             _rating.Rating = _movieViewModel.SelectedMovie.VoteAverage / 2f;
 
             string url = _movieViewModel.SelectedMovie.ToPosterUrl(PosterSize.W780);
@@ -56,6 +57,26 @@ namespace MovieDB.Droid
 
             _similarMovies.Adapter = new SimilarMoviesAdapter(this);
             _similarMovies.ItemClick += SimilarMovieSelected;
+
+            _playVideo.Click += (sender, e) =>
+            {
+                //not sure about this. would eventually play a movie trailer or navigate to whichever site has the trailer.
+            };
+            _addRemoveFavorite.Click += (sender, e) =>
+            {
+                string movieId = _movieViewModel.SelectedMovie.Id.ToString();
+                if (_favoriteViewModel.IsFavorite(movieId))
+                {
+                    _favoriteViewModel.Remove(movieId);
+                    _addRemoveFavorite.Text = Resources.GetString(Resource.String.SaveToFavorites);
+                }
+                else
+                {
+                    _favoriteViewModel.Add(_movieViewModel.SelectedMovie);
+                    _addRemoveFavorite.Text = Resources.GetString(Resource.String.RemoveFavorites);
+                }
+            };
+            _addRemoveFavorite.Text = _favoriteViewModel.IsFavorite(_movieViewModel.SelectedMovie.Id.ToString()) ? Resources.GetString(Resource.String.RemoveFavorites) : Resources.GetString(Resource.String.SaveToFavorites);
         }
 
         protected override void OnResume()

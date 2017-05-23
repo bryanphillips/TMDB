@@ -13,12 +13,17 @@ namespace MovieDB.Core.ViewModels
 
         public FavoriteViewModel()
         {
-            _favorites = _settings.User.Favorites ?? new List<Favorite>();
+            _favorites = new List<Favorite>();
         }
 
         public List<Favorite> Favorites
         {
             get { return _favorites; }
+        }
+
+        public void LoadFavorites()
+        {
+            _favorites = _settings.Favorites ?? _favorites;
         }
 
         public void Add(Movie movie)
@@ -29,6 +34,9 @@ namespace MovieDB.Core.ViewModels
                 PosterUrl = movie.PosterUrl,
                 Title = movie.Title,
             });
+
+            _settings.Favorites = _favorites;
+            _settings.Save();
         }
 
         public void Remove(string movieId)
@@ -36,9 +44,12 @@ namespace MovieDB.Core.ViewModels
             var favorite = _favorites.FirstOrDefault(f => f.MovieId == movieId);
             if (favorite != null)
                 _favorites.Remove(favorite);
+
+            _settings.Favorites = _favorites;
+            _settings.Save();
         }
 
-        public bool Exists(string movieId)
+        public bool IsFavorite(string movieId)
         {
             return _favorites.FirstOrDefault(f => f.MovieId == movieId) != null;
         }

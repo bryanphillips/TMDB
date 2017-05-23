@@ -271,14 +271,17 @@ namespace MovieDB.Droid
 			// aapt resource value: 0x7f070006
 			public const int Popular = 2131165190;
 			
+			// aapt resource value: 0x7f07000a
+			public const int RemoveFavorites = 2131165194;
+			
 			// aapt resource value: 0x7f070009
 			public const int SaveToFavorites = 2131165193;
 			
 			// aapt resource value: 0x7f070004
 			public const int SignIn = 2131165188;
 			
-			// aapt resource value: 0x7f07000a
-			public const int SimilarMovies = 2131165194;
+			// aapt resource value: 0x7f07000b
+			public const int SimilarMovies = 2131165195;
 			
 			// aapt resource value: 0x7f070005
 			public const int TopRated = 2131165189;

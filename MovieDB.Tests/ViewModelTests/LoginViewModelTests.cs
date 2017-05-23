@@ -67,15 +67,6 @@ namespace MovieDB.Tests.ViewModelTests
             {
                 UserName = "username",
                 Password = "password",
-                Favorites = new List<Favorite>
-                {
-                    new Favorite
-                    {
-                        MovieId = "1234",
-                        PosterUrl = "www.google.com",
-                        Title = "Google: The Movie",
-                    },
-                },
             };
 
             string userName = "username";
@@ -88,8 +79,6 @@ namespace MovieDB.Tests.ViewModelTests
             Assert.IsNotNull(_viewModel.CurrentUser);
             Assert.AreEqual(userName, _viewModel.CurrentUser.UserName);
             Assert.AreEqual(password, _viewModel.CurrentUser.Password);
-            Assert.IsNotNull(_viewModel.CurrentUser.Favorites);
-            Assert.AreNotEqual(0, _viewModel.CurrentUser.Favorites.Count);
         }
     }
 }

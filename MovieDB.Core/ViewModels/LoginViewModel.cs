@@ -51,12 +51,11 @@ namespace MovieDB.Core.ViewModels
                 //if different account
                 if (_settings.User != null && _settings.User.UserName != CurrentUser.UserName)
                 {
-                    _settings.User.Favorites?.Clear();
+                    _settings.Favorites?.Clear();
                 }
 
                 //if real app, the password would be md5 hash or some other kind of encryption to store locally, for this purpse just store it as it is typed.
                 CurrentUser.Password = Password;
-                CurrentUser.Favorites = _settings.User?.Favorites;
                 _settings.User = CurrentUser;
                 _settings.Save();
             }

@@ -28,7 +28,6 @@
                 android:id="@+id/moviedetail_titleinfolayout"
                 android:layout_marginLeft="10dp">
                 <TextView
-                    android:text="Star Wars: The Force Awakens"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/moviedetail_title"
@@ -40,7 +39,6 @@
                     android:ellipsize="end"
                     android:lineSpacingExtra=".5dp" />
                 <TextView
-                    android:text="Release Date: 12/18/2015"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/moviedetail_releasedate"
@@ -58,7 +56,6 @@
                     style="@style/ratingBar"
                     android:numStars="5" />
                 <TextView
-                    android:text="(from 100 votes)"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/moviedetail_totalvotes"
@@ -101,7 +98,6 @@
             </LinearLayout>
         </LinearLayout>
         <TextView
-            android:text="Raj is a rich, carefree, happy-go-lucky second generation NRI. Simran is the daughter of Chaudhary Baldev Singh, who in spite of being an NRI is very strict about adherence to Indian values. Simran has left for India to be married to her childhood fiancé. Raj leaves for India with a mission at his hands, to claim his lady love under the noses of her whole family. Thus begins a saga."
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/moviedetail_overview"

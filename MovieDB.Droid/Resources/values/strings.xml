@@ -9,6 +9,7 @@
   <string name="Popular">Popular</string>
   <string name="NowPlaying">Now Playing</string>
   <string name="PlayVideo">Play Video</string>
-  <string name="SaveToFavorites">Save to Favorites</string>
+  <string name="SaveToFavorites">Add Favorite</string>
+  <string name="RemoveFavorites">Remove Favorite</string>
   <string name="SimilarMovies">Similar Movies</string>
 </resources>

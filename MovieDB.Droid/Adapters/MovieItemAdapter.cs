@@ -50,6 +50,7 @@ namespace MovieDB.Droid.Adapters
     {
         private readonly ILogger _logger = ServiceContainer.Resolve<ILogger>();
         private readonly MovieViewModel _movieViewModel = ServiceContainer.Resolve<MovieViewModel>();
+        private readonly FavoriteViewModel _favoriteViewModel = ServiceContainer.Resolve<FavoriteViewModel>();
         private ImageView _imageView;
         private View _rootView;
         private Context _context;
@@ -74,6 +75,7 @@ namespace MovieDB.Droid.Adapters
             {
                 _logger.Log("MovieItemViewHolder", $"Movie ID = {_rootView.Tag}");
                 await _movieViewModel.GetMovie(_rootView.Tag.ToString());
+                _favoriteViewModel.LoadFavorites();
                 _context.StartActivity(typeof(MovieDetailActivity));
             }
         }

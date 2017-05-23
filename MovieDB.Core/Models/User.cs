@@ -15,11 +15,5 @@ namespace MovieDB.Core.Models
 
         [DataMember]
         public string Password { get; set; }
-
-        /// <summary>
-        /// List of Favorite Movies
-        /// </summary>
-        [DataMember]
-        public List<Favorite> Favorites { get; set; }
     }
 }
