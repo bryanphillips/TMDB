@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+  <string name="ApplicationName">MovieDB Sample</string>
+  <string name="LoginMessage">Please sign in...</string>
+  <string name="Email">Email</string>
+  <string name="Password">Password</string>
+  <string name="SignIn">Sign In</string>
+  <string name="TopRated">Top Rated</string>
+  <string name="Popular">Popular</string>
+  <string name="NowPlaying">Now Playing</string>
+</resources>
