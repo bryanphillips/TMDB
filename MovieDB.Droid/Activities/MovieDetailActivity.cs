@@ -12,6 +12,8 @@ using Android.Widget;
 using MovieDB.Core.ViewModels;
 using MovieDB.Core;
 using MovieDB.Droid.Adapters;
+using MovieDB.Droid.Utilities;
+using Square.Picasso;
 
 namespace MovieDB.Droid
 {
@@ -24,6 +26,7 @@ namespace MovieDB.Droid
         private ImageView _moviePoster;
         private Button _playVideo, _addtoFavorites;
         private GridView _similarMovies;
+        private ScrollView _scrollView;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -40,15 +43,24 @@ namespace MovieDB.Droid
             _playVideo = FindViewById<Button>(Resource.Id.moviedetail_playvideo);
             _addtoFavorites = FindViewById<Button>(Resource.Id.moviedetail_addtofavorites);
             _similarMovies = FindViewById<GridView>(Resource.Id.moviedetail_similarmoviesgrid);
+            _scrollView = FindViewById<ScrollView>(Resource.Id.moviedetail_scrollview);
 
             _title.Text = _movieViewModel.SelectedMovie.Title;
             _overview.Text = _movieViewModel.SelectedMovie.Overview;
-            _releaseDate.Text = _movieViewModel.SelectedMovie.ReleaseDate.ToString("MM/dd/yyyy");
+            _releaseDate.Text = $"Release Date: {_movieViewModel.SelectedMovie.ReleaseDate.ToShortDateString()}";
             _voteTotal.Text = $"from {_movieViewModel.SelectedMovie.VoteCount} votes";
-            _rating.Rating = _movieViewModel.SelectedMovie.VoteAverage / 10f;
+            _rating.Rating = _movieViewModel.SelectedMovie.VoteAverage / 2f;
+
+            string url = _movieViewModel.SelectedMovie.ToPosterUrl(PosterSize.W780);
+            Picasso.With(this).Load(url).Into(_moviePoster);
 
             _similarMovies.Adapter = new SimilarMoviesAdapter(this);
             _similarMovies.ItemClick += SimilarMovieSelected;
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();            
         }
 
         private async void SimilarMovieSelected(object sender, AdapterView.ItemClickEventArgs e)

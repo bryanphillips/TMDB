@@ -43,7 +43,7 @@ namespace MovieDB.Core.Models
         [DataMember(Name = "release_date")]
         public DateTime ReleaseDate { get; set; }
         [DataMember(Name = "revenue")]
-        public int Revenue { get; set; }
+        public long Revenue { get; set; }
         [DataMember(Name = "runtime")]
         public int Runtime { get; set; }
         [DataMember(Name = "spoken_languages")]
