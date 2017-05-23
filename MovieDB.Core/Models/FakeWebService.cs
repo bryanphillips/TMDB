@@ -323,7 +323,7 @@ namespace MovieDB.Core.Models
             },
         };
 
-        public async Task<Movie> GetMovie(string movieId)
+        public async Task<Movie> GetMovie(int movieId)
         {
             //ignore movie passed and return one a default one. its a fake service for crying out loud.
             //263115 I choose you.
@@ -455,7 +455,7 @@ namespace MovieDB.Core.Models
             };
         }
 
-        public async Task<QueryMoviesResponse> GetSimilarMovies(string movieId)
+        public async Task<QueryMoviesResponse> GetSimilarMovies(int movieId)
         {
             //we are using shawshank redemption, so i don't really care what was passed in.
             await Task.Delay(Sleep);
@@ -482,7 +482,7 @@ namespace MovieDB.Core.Models
             };
         }
 
-        public async Task<QueryVideosResponse> GetVideos(string movieId)
+        public async Task<QueryVideosResponse> GetVideos(int movieId)
         {
             await Task.Delay(Sleep);
 

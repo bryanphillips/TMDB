@@ -61,7 +61,7 @@ namespace MovieDB.Tests.ViewModelTests
             _viewModel.SelectedMovie = _viewModel.NowPlaying.FirstOrDefault();
             Assert.IsNotNull(_viewModel.SelectedMovie);
 
-            await _viewModel.LoadSimilar(_viewModel.SelectedMovie.Id.ToString());
+            await _viewModel.LoadSimilar(_viewModel.SelectedMovie.Id);
             Assert.AreNotEqual(0, _viewModel.Similar.Count);
             var similarMovie = _viewModel.Similar.FirstOrDefault();
             Assert.IsNotNull(similarMovie);
@@ -75,12 +75,12 @@ namespace MovieDB.Tests.ViewModelTests
             _viewModel.SelectedMovie = _viewModel.NowPlaying.FirstOrDefault();
             Assert.IsNotNull(_viewModel.SelectedMovie);
 
-            await _viewModel.LoadSimilar(_viewModel.SelectedMovie.Id.ToString());
+            await _viewModel.LoadSimilar(_viewModel.SelectedMovie.Id);
             Assert.AreNotEqual(0, _viewModel.Similar.Count);
             var similarMovie = _viewModel.Similar.FirstOrDefault();
             Assert.IsNotNull(similarMovie);
 
-            await _viewModel.GetMovie(similarMovie.Id.ToString());
+            await _viewModel.GetMovie(similarMovie.Id);
             Assert.IsNotNull(_viewModel.SelectedMovie);
         }
 
@@ -91,7 +91,7 @@ namespace MovieDB.Tests.ViewModelTests
             Assert.AreNotEqual(0, _viewModel.NowPlaying.Count);
             _viewModel.SelectedMovie = _viewModel.NowPlaying.FirstOrDefault();
             Assert.IsNotNull(_viewModel.SelectedMovie);
-            await _viewModel.GetVideos(_viewModel.SelectedMovie.Id.ToString());
+            await _viewModel.GetVideos(_viewModel.SelectedMovie.Id);
             Assert.IsNotNull(_viewModel.SelectedMovieTrailer);
         }
     }

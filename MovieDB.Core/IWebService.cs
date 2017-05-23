@@ -11,11 +11,11 @@ namespace MovieDB.Core
     public interface IWebService
     {
         Task<User> Login(string userName, string password);
-        Task<Movie> GetMovie(string movieId);
+        Task<Movie> GetMovie(int movieId);
         Task<QueryMoviesResponse> GetNowPlayingMovies();
         Task<QueryMoviesResponse> GetTopRatedMovies();
         Task<QueryMoviesResponse> GetPopularMovies();
-        Task<QueryMoviesResponse> GetSimilarMovies(string movieId);
-        Task<QueryVideosResponse> GetVideos(string movieId);
+        Task<QueryMoviesResponse> GetSimilarMovies(int movieId);
+        Task<QueryVideosResponse> GetVideos(int movieId);
     }
 }

@@ -73,9 +73,10 @@ namespace MovieDB.Droid.Adapters
             //check the tag to see what movie it is. then navigate to next activity to show the movie.
             if(_rootView.Tag == v.Tag)
             {
+                int id = (int)_rootView.Tag;
                 _logger.Log("MovieItemViewHolder", $"Movie ID = {_rootView.Tag}");
-                await _movieViewModel.GetMovie(_rootView.Tag.ToString());
-                await _movieViewModel.GetVideos(_rootView.Tag.ToString());
+                await _movieViewModel.GetMovie(id);
+                await _movieViewModel.GetVideos(id);
                 _favoriteViewModel.LoadFavorites();
                 _context.StartActivity(typeof(MovieDetailActivity));
             }

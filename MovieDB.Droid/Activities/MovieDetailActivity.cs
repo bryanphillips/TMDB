@@ -104,8 +104,8 @@ namespace MovieDB.Droid
             var movie = _movieViewModel.Similar.ElementAtOrDefault(e.Position);
             if (movie != null)
             {
-                await _movieViewModel.GetMovie(movie.Id.ToString());
-                await _movieViewModel.GetVideos(movie.Id.ToString());
+                await _movieViewModel.GetMovie(movie.Id);
+                await _movieViewModel.GetVideos(movie.Id);
                 StartActivity(typeof(MovieDetailActivity));
             }
         }

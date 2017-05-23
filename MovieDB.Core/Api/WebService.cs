@@ -88,7 +88,7 @@ namespace MovieDB.Core.Api
             return new User { UserName = userName };
         }
 
-        public async Task<Movie> GetMovie(string movieId)
+        public async Task<Movie> GetMovie(int movieId)
         {
             return await GetAsync<Movie>("movie/" + movieId);
         }
@@ -103,7 +103,7 @@ namespace MovieDB.Core.Api
             return await GetAsync<QueryMoviesResponse>("movie/popular");
         }
 
-        public async Task<QueryMoviesResponse> GetSimilarMovies(string movieId)
+        public async Task<QueryMoviesResponse> GetSimilarMovies(int movieId)
         {
             return await GetAsync<QueryMoviesResponse>($"movie/{movieId}/similar");
         }
@@ -113,7 +113,7 @@ namespace MovieDB.Core.Api
             return await GetAsync<QueryMoviesResponse>("movie/top_rated");
         }
 
-        public async Task<QueryVideosResponse> GetVideos(string movieId)
+        public async Task<QueryVideosResponse> GetVideos(int movieId)
         {
             return await GetAsync<QueryVideosResponse>($"movie/{movieId}/videos");
         }

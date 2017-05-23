@@ -118,7 +118,7 @@ namespace MovieDB.Core.ViewModels
         /// </summary>
         /// <param name="movieId"></param>
         /// <returns></returns>
-        public async Task LoadSimilar(string movieId)
+        public async Task LoadSimilar(int movieId)
         {
             IsBusy = true;
             try
@@ -138,7 +138,7 @@ namespace MovieDB.Core.ViewModels
         /// </summary>
         /// <param name="movieId"></param>
         /// <returns></returns>
-        public async Task GetMovie(string movieId)
+        public async Task GetMovie(int movieId)
         {
             IsBusy = true;
             try
@@ -158,7 +158,7 @@ namespace MovieDB.Core.ViewModels
         /// </summary>
         /// <param name="movieId"></param>
         /// <returns></returns>
-        public async Task GetVideos(string movieId)
+        public async Task GetVideos(int movieId)
         {
             IsBusy = true;
             try

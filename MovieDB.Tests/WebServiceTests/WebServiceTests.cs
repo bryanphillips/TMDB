@@ -24,7 +24,7 @@ namespace MovieDB.Tests
         [Test]
         public async Task GetMovie()
         {
-            var movie = await _service.GetMovie("263115");
+            var movie = await _service.GetMovie(263115);
 
             Assert.IsNotNull(movie);
         }
@@ -59,7 +59,7 @@ namespace MovieDB.Tests
             Assert.AreNotEqual(0, response.Movies.Count);
 
             var movie = response.Movies.FirstOrDefault();
-            var similarResponse = await _service.GetSimilarMovies(movie.Id.ToString());
+            var similarResponse = await _service.GetSimilarMovies(movie.Id);
 
             Assert.IsNotNull(similarResponse);
             Assert.IsNotNull(similarResponse.Movies);
@@ -76,7 +76,7 @@ namespace MovieDB.Tests
             Assert.AreNotEqual(0, response.Movies.Count);
 
             var movie = response.Movies.FirstOrDefault();
-            var videoResponse = await _service.GetVideos(movie.Id.ToString());
+            var videoResponse = await _service.GetVideos(movie.Id);
 
             Assert.IsNotNull(videoResponse);
             Assert.IsNotNull(videoResponse.Videos);
